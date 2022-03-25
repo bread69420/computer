@@ -29,10 +29,10 @@ For example, we have this equation that to be guessed:
 
 The display will be like this:
 
-`
+```
 _ _ _ _ _ _ _ _
 Please input an equation:
 23+45=68
 _ ? ? ? ? O _ ?
 Please input an equation:
-`
+```
