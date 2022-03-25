@@ -14,6 +14,25 @@ The player will be given a sequence with a specific number (the length may vary,
 
 There are six rows. Each player would have to enter six equations correspondingly to win.
 
-Each equations consist eight of the following elements: integers 0-9 and symbols "+", "-", "x", "/" and "=". There must be only one "=" in every equation. The elements following "=" has to be a number instead of an expression.
+Each equations consist eight of the following elements: integers 0-9 and symbols "+", "-", "*", "/" and "=". There must be only one "=" in every equation. The elements following "=" has to be a number instead of an expression.
 
 Commutative properties of equations allowed.
+
+After each attempt, the screen will display messages with following rules:
+- for characters that are in the same position: `O`
+- for characters that exist but in a wrong position: `?`
+- for characters that does not exist: `_`
+
+For example, we have this equation that to be guessed:
+
+`5*7+8=43`
+
+The display will be like this:
+
+`
+_ _ _ _ _ _ _ _
+Please input an equation:
+23+45=68
+_ ? ? ? ? O _ ?
+Please input an equation:
+`
