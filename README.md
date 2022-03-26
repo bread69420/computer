@@ -42,5 +42,5 @@ Users are allowed to keep guessing until they get the correct answer.
 Features and plans:
 - random seed with current time
 - there could be an easy mode where only '+', '-', '=' and numbers are used
-- the program needs to manipulate the program in a correct way e.g correct order of calculation 
+- the program needs to manipulate the program in a correct way e.g order of operation
 - use of character arrays to store the equation
