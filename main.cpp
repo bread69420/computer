@@ -9,7 +9,7 @@ using namespace std;
 
 const int MAX = 20;
 
-bool valid_char(char c){ // only accept digits and certain symbols
+bool valid_char(char c){
   if (isdigit(c)){
     return true;
   }
@@ -19,7 +19,7 @@ bool valid_char(char c){ // only accept digits and certain symbols
   return false;
 }
 
-bool eval(string s, int len){  // return true when the expression is valid, otherwise return false
+bool eval(string s, int len){
   int plus_count, minus_count, times_count, divide_count, equal_count, num1, num2, num3 = 0;
   string n1_s, n2_s, n3_s;
   bool n1_fin, n2_fin = false;
@@ -68,7 +68,6 @@ bool eval(string s, int len){  // return true when the expression is valid, othe
         }
 
         if (plus_count + minus_count + times_count + divide_count + equal_count >= 3){
-          cout << s[i] << plus_count + minus_count + times_count + divide_count + equal_count;
           return false;
         }
       }
@@ -77,6 +76,9 @@ bool eval(string s, int len){  // return true when the expression is valid, othe
     else{
       return false;  // stop running when there is invalid character
     }
+  }
+  if (n1_s == "" || n2_s == "" || n3_s == ""){
+    return false;
   }
   num1 = stoi(n1_s);
   num2 = stoi(n2_s);
@@ -132,31 +134,32 @@ void obtain_equation(string &str){
 
 
 int main(){
-  string equation;
-  obtain_equation(equation);
-  string guess;
-  string attempt_review;
-  bool Guess_correct;
-  int equation_len, eq_len;
-  eq_len = equation.length();
-  int * count = new int;
-  *count = 0;
+    string equation;
+    obtain_equation(equation);
+    string guess;
+    string attempt_review;
+    bool Guess_correct;
+    int equation_len, eq_len;
+    eq_len = equation.length();
+    int * count = new int;
+    *count = 0;
+    guess = "";
 
-  cout << "Welcome to Nerdle! This is a guessing game where you have to guess a random equation of 6 places to win. \n";
-  guess_space(attempt_review, eq_len);
-  cout << attempt_review << endl;
-  while (!Guess_correct){
-    accept_guess(guess, eq_len);
-    check_guess(guess, equation, attempt_review);
+    cout << "Welcome to Nerdle! This is a guessing game where you have to guess a random equation of 6 places to win. \n";
+    guess_space(attempt_review, eq_len);
     cout << attempt_review << endl;
-    if (attempt_review == "OOOOOO"){
-      Guess_correct = true;
-    }
-    (*count)++;
+    while (!Guess_correct){
+      accept_guess(guess, eq_len);
+      check_guess(guess, equation, attempt_review);
+      cout << attempt_review << endl;
+      if (attempt_review == "OOOOOO"){
+        Guess_correct = true;
+      }
+      (*count)++;
 
-  }
-  cout << "You win!\nYou took " << *count << " times to get the answer." << endl;
-  delete count;
+    }
+    cout << "You win!\nYou toke " << *count << " times to get the answer." << endl;
+    delete count;
 
   return 0;
 }
