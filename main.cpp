@@ -4,50 +4,102 @@
 #include <cstring>
 #include <fstream>
 #include <string>
+#include "check.h"
 using namespace std;
 
 const int MAX = 20;
 
+bool valid_char(char c){
+  if (isdigit(c)){
+    return true;
+  }
+  if (c == '+' || c == '-' || c == '*' || c == '/' || c == '='){
+    return true;
+  }
+  return false;
+}
+
+bool eval(string s, int len){
+  return true;
+  int plus_count, minus_count, times_count, divide_count, equal_count, num1, num2, num3 = 0;
+  string n1_s, n2_s, n3_s;
+  bool n1_fin, n2_fin = false;
+  for (int i = 0; i < len; i++){
+    if (valid_char(s[i])){
+      if (isdigit(s[i])){
+
+        if (!n1_fin){
+          n1_s = n1_s + s[i];
+        }
+
+        if (n1_fin && !n2_fin){
+          n2_s = n2_s + s[i];
+        }
+
+        if (n1_fin && n2_fin){
+          n3_s = n3_s + s[i];
+        }
+      }
+
+      if(!isdigit(s[i])){
+        if (s[i] == '+'){
+          plus_count++;
+          n1_fin = true;
+        }
+        if (s[i] == '-'){
+          minus_count++;
+          n1_fin = true;
+        }
+        if (s[i] == '*'){
+          times_count++;
+          n1_fin = true;
+        }
+        if (s[i] == '/'){
+          divide_count++;
+          n1_fin = true;
+        }
+        if (s[i] == '='){
+          equal_count++;
+          n2_fin = true;
+        }
+
+        if (plus_count + minus_count + times_count + divide_count + equal_count >= 3){
+          cout << s[i] << plus_count + minus_count + times_count + divide_count + equal_count;
+          return false;
+        }
+      }
+
+    }
+    else{
+      return false;  // stop running when there is invalid character
+    }
+  }
+  num1 = stoi(n1_s);
+  num2 = stoi(n2_s);
+  num3 = stoi(n3_s);
+  if (plus_count == 1){
+    return num1 + num2 == num3;
+  }
+  if (minus_count == 1){
+    return num1 - num2 == num3;
+  }
+  if (times_count == 1){
+    return num1 * num2 == num3;
+  }
+  if (divide_count == 1){
+    return num1 / num2 == num3;
+  }
+  return false;
+}
+
 void accept_guess(string &s, int len){
   cin >> s;
-  while (s.length() != len){  // check if input is valid
+  while (s.length() != len || !eval(s, len)){  // check if input is valid
     cout << "Invalid guess." << endl;
     cin >> s;
   }
 }
 
-int eval(){
-  return 1;
-}
-
-void guess_space(string &s, int len){  // make initial guess space
-  s = "";
-  for (int i = 0; i < len; i++){
-    s += "_";
-  }
-}
-
-
-void check_guess(string guess, string ans, string &review){
-  guess_space(review, ans.length());
-
-  string guess_copy = guess;  // check if position is correct
-  for (int i = 0; i < ans.length(); i++){
-    if (guess_copy[i] == ans[i]){
-      review[i] = 'O';
-      guess_copy[i] = 'x';
-    }
-  }
-  
-  for (int i = 0; i < ans.length(); i++){  // check if certain character exist
-    for (int j = 0; j < ans.length(); j++){
-      if (guess_copy[i] == ans[j]){
-        review[i] = '?';
-        guess_copy[i] = 'x';
-      }
-    }
-  }
-}
 
 void obtain_equation(string &str){
   srand(time(NULL)); // set random seed
@@ -64,7 +116,6 @@ void obtain_equation(string &str){
   }
 
   int equation_num = *i + 1;
-  //cout << equation_num << endl;
 
   str = s[rand() % equation_num]; // get a random equation from list
 
@@ -98,4 +149,7 @@ int main(){
 
   }
   cout << "You win!\nYou toke " << count << " times to get the answer." << endl;
+
+  return 0;
 }
+
