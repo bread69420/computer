@@ -8,13 +8,13 @@ Wordle and Nerdle are games that are having an increasing trend these days. Simi
 
 #### Rules
 
-The player will be given a sequence with a specific number (the length may vary, unlike in Nerdle) of spaces like this:
+The player will be given 6 entries of spaces to type an equation.
 
-`_ _ _ _ _ _ _ _`
+`_ _ _ _ _ _ 
 
-There are six rows. Each player would have to enter six equations correspondingly to win.
+The player must guess the correct equation to win.
 
-Each equations consist eight of the following elements: integers 0-9 and symbols "+", "-", "*", "/" and "=". There must be only one "=" in every equation. The elements following "=" has to be a number instead of an expression.
+Each equations consist six of the following elements: integers 0-9 and symbols "+", "-", "*", "/" and "=". There must be only one "=" in every equation. The elements following "=" has to be a number instead of an expression.
 
 Commutative properties of equations allowed.
 
@@ -25,22 +25,25 @@ After each attempt, the screen will display messages with following rules:
 
 For example, we have this equation that to be guessed:
 
-`5*7+8=43`
+`5+6=11'
 
 The display will be like this:
 
 ```
-_ _ _ _ _ _ _ _
+_ _ _ _ _ _ 
 Please input an equation:
-23+45=68
-_ ? ? ? ? O _ ?
+5+5=10
+OO_OO_
 Please input an equation:
 ```
+For numbers in RHS with single digits, please type, for example, 09 instead of 9.
 
 Users are allowed to keep guessing until they get the correct answer.
 
+Instructions are also given in the actual game.
+
 Features and plans:
 - random seed with current time
-- there could be an easy mode where only '+', '-', '=' and numbers are used
+- only computational skills are needed
 - the program needs to manipulate the program in a correct way e.g order of operation
-- use of character arrays to store the equation
+- the equation would need to match the seed 
