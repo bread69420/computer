@@ -37,10 +37,26 @@ OO_OO_
 Please input an equation:
 ```
 
+If the users entered an invalid equation, the display will be like this:
+```
+_ _ _ _ _ _
+Please input an equation:
+1+2=3
+Invalid input.
+Please input an equation:
+5+8=19
+Invalid input.
+```
+
 Users are allowed to keep guessing until they get the correct answer.
 
-Features and plans:
-- random seed with current time
+Features and coding elements:
+1. random seed with current time
+2. string to store user input, int to store the count
+3. dynamic memory is used to read the files of unknown length
+4. users are allowed to input their guesses
+5. some of the functions are stored in check.cpp and a Makefile is used to merge those into executable main
+
 - only simple computational skills are needed for the math
-- the program needs to manipulate the program in a correct way e.g order of operation
 - input equation must match the seed to win
+- the eval() function is added to check whether the users are trolling like entering invalid equations such as "1+1=3"
