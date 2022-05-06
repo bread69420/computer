@@ -20,10 +20,14 @@ bool valid_char(char c){
 }
 
 bool eval(string s, int len){
-  return true;
   int plus_count, minus_count, times_count, divide_count, equal_count, num1, num2, num3 = 0;
   string n1_s, n2_s, n3_s;
   bool n1_fin, n2_fin = false;
+  plus_count = 0;
+  minus_count = 0;
+  times_count = 0;
+  divide_count = 0;
+  equal_count = 0;
   for (int i = 0; i < len; i++){
     if (valid_char(s[i])){
       if (isdigit(s[i])){
@@ -133,9 +137,12 @@ int main(){
   string guess;
   string attempt_review;
   bool Guess_correct;
-  int equation_len, count, eq_len;
+  int equation_len, eq_len;
   eq_len = equation.length();
-  count = 0;
+  int * count = new int;
+  *count = 0;
+
+  cout << "Welcome to Nerdle! This is a guessing game where you have to guess a random equation of 6 places to win. \n";
   guess_space(attempt_review, eq_len);
   cout << attempt_review << endl;
   while (!Guess_correct){
@@ -145,11 +152,11 @@ int main(){
     if (attempt_review == "OOOOOO"){
       Guess_correct = true;
     }
-    count++;
+    (*count)++;
 
   }
-  cout << "You win!\nYou toke " << count << " times to get the answer." << endl;
+  cout << "You win!\nYou toke " << *count << " times to get the answer." << endl;
+  delete count;
 
   return 0;
 }
-
