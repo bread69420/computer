@@ -155,7 +155,7 @@ int main(){
     (*count)++;
 
   }
-  cout << "You win!\nYou toke " << *count << " times to get the answer." << endl;
+  cout << "You win!\nYou took " << *count << " times to get the answer." << endl;
   delete count;
 
   return 0;
