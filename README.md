@@ -10,11 +10,11 @@ Wordle and Nerdle are games that are having an increasing trend these days. Simi
 
 The player will be given a sequence with a specific number (the length may vary, unlike in Nerdle) of spaces like this:
 
-`_ _ _ _ _ _ _ _`
+`_ _ _ _ _ _`
 
-There are six rows. Each player would have to enter six equations correspondingly to win.
+Each player has to guess a correct equation to win. They have 6 tries.
 
-Each equations consist eight of the following elements: integers 0-9 and symbols "+", "-", "*", "/" and "=". There must be only one "=" in every equation. The elements following "=" has to be a number instead of an expression.
+Each equations consist six of the following elements: integers 0-9 and symbols "+", "-", "*", "/" and "=". There must be only one "=" in every equation. The elements following "=" has to be a number instead of an expression.
 
 Commutative properties of equations allowed.
 
@@ -25,15 +25,15 @@ After each attempt, the screen will display messages with following rules:
 
 For example, we have this equation that to be guessed:
 
-`5*7+8=43`
+`5+6=11`
 
 The display will be like this:
 
 ```
-_ _ _ _ _ _ _ _
+_ _ _ _ _ _
 Please input an equation:
-23+45=68
-_ ? ? ? ? O _ ?
+5+5=10
+OO_OO_
 Please input an equation:
 ```
 
@@ -41,6 +41,6 @@ Users are allowed to keep guessing until they get the correct answer.
 
 Features and plans:
 - random seed with current time
-- there could be an easy mode where only '+', '-', '=' and numbers are used
+- only simple computational skills are needed for the math
 - the program needs to manipulate the program in a correct way e.g order of operation
-- use of character arrays to store the equation
+- input equation must match the seed to win
