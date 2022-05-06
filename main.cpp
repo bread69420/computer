@@ -48,8 +48,36 @@ void check_guess(string guess, string ans, string &review){
   }
 }
 
+void obtain_equation(string &str){
+  srand(time(NULL)); // set random seed
+  ifstream fin;
+  fin.open("words.txt");
+
+  string * s = new string [MAX];
+
+  int * i = new int;
+  *i = 0;
+
+  while (fin >> s[*i]){  // read equations from file
+    (*i)++;
+  }
+
+  int equation_num = *i + 1;
+  //cout << equation_num << endl;
+
+  str = s[rand() % equation_num]; // get a random equation from list
+
+
+  fin.close();
+  delete [] s;
+  delete i;
+}
+
+
+
 int main(){
-  string equation = "3*2=6";
+  string equation;
+  obtain_equation(equation);
   string guess;
   string attempt_review;
   bool Guess_correct;
@@ -62,7 +90,7 @@ int main(){
     accept_guess(guess, eq_len);
     check_guess(guess, equation, attempt_review);
     cout << attempt_review << endl;
-    if (attempt_review == "OOOOO"){
+    if (attempt_review == "OOOOOO"){
       Guess_correct = true;
     }
     count++;
