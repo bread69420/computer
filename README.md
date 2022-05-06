@@ -10,7 +10,7 @@ Wordle and Nerdle are games that are having an increasing trend these days. Simi
 
 The player will be given 6 entries of spaces to type an equation.
 
-`_ _ _ _ _ _ 
+`_ _ _ _ _ _'
 
 The player must guess the correct equation to win.
 
