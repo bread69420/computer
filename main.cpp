@@ -9,7 +9,7 @@ using namespace std;
 
 const int MAX = 20;
 
-bool valid_char(char c){
+bool valid_char(char c){ // only accept digits and certain symbols
   if (isdigit(c)){
     return true;
   }
@@ -19,7 +19,7 @@ bool valid_char(char c){
   return false;
 }
 
-bool eval(string s, int len){
+bool eval(string s, int len){  // return true when the expression is valid, otherwise return false
   int plus_count, minus_count, times_count, divide_count, equal_count, num1, num2, num3 = 0;
   string n1_s, n2_s, n3_s;
   bool n1_fin, n2_fin = false;
