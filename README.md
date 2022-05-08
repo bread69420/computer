@@ -2,6 +2,8 @@
 
 Group members: Pau Huen Kak, Chan Hei
 
+Video: https://www.youtube.com/watch?app=desktop&v=IfuPsHHAkYo&feature=youtu.be
+
 Computer project: Nerdle
 
 Wordle and Nerdle are games that are having an increasing trend these days. Nerdle is an equation version of Hangman that requires player to guess the equation correctly.
