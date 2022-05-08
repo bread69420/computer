@@ -1,0 +1,7 @@
+Invalid guess.
+Invalid guess.
+__?OO_
+?O_O__
+OOOOOO
+You win!
+You toke 3 times to get the answer.
